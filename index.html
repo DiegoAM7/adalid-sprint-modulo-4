@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="./src/public/vite.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sprint Módulo 4</title>
+	</head>
+	<body>
+		<main>
+			<div class="d-flex align-items-start">
+				<div
+					class="nav flex-column nav-pills me-3"
+					id="v-pills-tab"
+					role="tablist"
+					aria-orientation="vertical"
+				>
+					<button
+						class="nav-link active"
+						id="busqueda-nombre-id-tab"
+						data-bs-toggle="pill"
+						data-bs-target="#busqueda-nombre-id"
+						type="button"
+						role="tab"
+						aria-controls="busqueda-nombre-id"
+						aria-selected="true"
+					>
+						Busqueda por Nombre o ID
+					</button>
+
+					<button
+						class="nav-link"
+						id="listado-pokemons-tab"
+						data-bs-toggle="pill"
+						data-bs-target="#listado-pokemons"
+						type="button"
+						role="tab"
+						aria-controls="listado-pokemons"
+						aria-selected="false"
+					>
+						Listado de Pokémons
+					</button>
+				</div>
+
+				<div class="tab-content" id="v-pills-tabContent">
+					<div
+						class="tab-pane fade show active"
+						id="busqueda-nombre-id"
+						role="tabpanel"
+						aria-labelledby="busqueda-nombre-id-tab"
+						tabindex="0"
+					>
+						<div class="row">
+							<form id="busqueda" class="col-12 p-5">
+								<div class="form-floating">
+									<input
+										class="form-control"
+										type="search"
+										name="nombre-id-pokemon"
+										id="nombre-id-pokemon"
+										placeholder="Búsqueda"
+									/>
+									<label for="nombre-id-pokemon">Búsqueda</label>
+								</div>
+							</form>
+
+							<div class="col" id="mostrarPokemon"></div>
+						</div>
+					</div>
+
+					<div
+						class="tab-pane fade"
+						id="listado-pokemons"
+						role="tabpanel"
+						aria-labelledby="listado-pokemons-tab"
+						tabindex="0"
+					>
+						<div class="container p-5">
+							<div class="row g-5" id="listadoPokemons"></div>
+
+							<div class="row justify-content-end mt-5">
+								<button
+									data-id="btnCargarMas"
+									data-limit="20"
+									data-offset="0"
+									class="btn btn-primary col-2 me-3"
+								>
+									Cargar más
+								</button>
+
+								<button
+									data-id="btnBorrarTodo"
+									data-limit="20"
+									data-offset="0"
+									class="btn btn-danger col-2"
+								>
+									Borrar todo
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<script src="./src/assets/js/bootstrap.bundle.min.js"></script>
+		<script type="module" src="./src/main.js"></script>
+	</body>
+</html>
