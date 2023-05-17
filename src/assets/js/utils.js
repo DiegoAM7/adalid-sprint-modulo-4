@@ -10,54 +10,70 @@ document.addEventListener('DOMContentLoaded', () => {
 	const mostrarPokemon = document.querySelector('#mostrarPokemon');
 	const listadoPokemons = document.querySelector('#listadoPokemons');
 	const btnBorrarTodo = document.querySelector('[data-id="btnBorrarTodo"]');
+	const listado = [];
 	let btnCargarMas;
 
-	const cargarListadoPokemons = async (offset = 0) => {
+	const cargarListadoPokemons = async (offset = 0, e) => {
 		try {
 			const res = await fetch(`${baseUrl}/pokemon?limit=20&offset=${offset}`);
 			const data = await res.json();
 
-			await mostrarListadoPokemons(data.results, offset);
+			await mostrarListadoPokemons(data.results, offset, e);
 		} catch (error) {
 			console.log(error);
 		}
 	};
 
-	const mostrarListadoPokemons = async (data, offset) => {
-		await data.map(async (poke) => {
-			try {
-				const resOne = await fetch(poke.url);
-				const pokemon = await resOne.json();
+	const mostrarListadoPokemons = async (data, offset, e) => {
+		await Promise.all(
+			data.map(async (poke) => {
+				try {
+					const resOne = await fetch(poke.url);
+					const pokemon = await resOne.json();
 
+					listado.push(pokemon);
+				} catch (error) {
+					console.log(error);
+				}
+			})
+		);
+
+		listado
+			.sort((a, b) => a.id - b.id)
+			.map((pokemon) => {
 				listadoPokemons.innerHTML += `
-				<div class="col-12 col-md-6 col-lg-4 col-xl-3">
-					<div class="card text-center" style="height: 550px; width: 300px;">
-						<div class="card-body">
-							<img width="250px" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
-								pokemon.id
-							}.png" alt="${pokemon.name}">
-							<h5 class="card-title">${
-								pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
-							}</h5>
-							<p class="card-text">ID: ${pokemon.id}</p>
-							<p class="card-text">Tipos:</p>
-							<span class="row">${pokemon.types
-								.map(
-									(tipo) =>
-										`<img class="col-12 object-fit-none" src="src/public/tipos/${tipo.type.name}.png" alt="${tipo.type.name}" />`
-								)
-								.join('')}
-							</span>
-						</div>
+			<div class="col-12 col-md-6 col-lg-4 col-xl-3">
+				<div class="card text-center" style="height: 550px; width: 300px;">
+					<div class="card-body">
+						<img width="250px" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
+							pokemon.id
+						}.png" alt="${pokemon.name}">
+						<h5 class="card-title">${pokemon.name
+							.split('-')
+							.map((nombre) => nombre.charAt(0).toUpperCase() + nombre.slice(1))
+							.join(' ')}</h5>
+						<p class="card-text">ID: ${pokemon.id}</p>
+						<p class="card-text">Tipos:</p>
+						<span class="row">${pokemon.types
+							.map(
+								(tipo) =>
+									`<img class="col-12 object-fit-none" src="src/public/tipos/${tipo.type.name}.png" alt="${tipo.type.name}" />`
+							)
+							.join('')}
+						</span>
 					</div>
-				</div>`;
-			} catch (error) {
-				console.log(error);
-			}
-		});
+				</div>
+			</div>`;
+			});
+
+		listado.splice(0, listado.length);
 
 		if (btnCargarMas) {
 			btnCargarMas.dataset.offset = offset;
+		}
+
+		if (e) {
+			e.target.disabled = false;
 		}
 
 		cargarBotonCargarMas();
@@ -66,7 +82,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	const botonCargarMas = async (e) => {
 		e.preventDefault();
 
-		await cargarListadoPokemons(parseInt(btnCargarMas.dataset.offset) + 20);
+		e.target.disabled = true;
+
+		await cargarListadoPokemons(parseInt(btnCargarMas.dataset.offset) + 20, e);
 	};
 
 	const cargarBotonCargarMas = () => {
@@ -85,6 +103,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			const res = await fetch(`${baseUrl}/pokemon/${nombreID}`);
 			const data = await res.json();
+
+			console.log(data);
 
 			const pokemon = new Pokemon(
 				data.id,
@@ -105,9 +125,14 @@ document.addEventListener('DOMContentLoaded', () => {
 					<div class="row align-items-center">
 						<div class="col">
 						<img width="200px" src="${pokemon.imagen}" alt="${pokemon.nombre}">
-							<h5 class="card-title">${
-								pokemon.nombre.charAt(0).toUpperCase() + pokemon.nombre.slice(1)
-							}</h5>
+							<h5 class="card-title">
+								${pokemon.nombre
+									.split('-')
+									.map(
+										(nombre) => nombre.charAt(0).toUpperCase() + nombre.slice(1)
+									)
+									.join(' ')}
+							</h5>
 							<p class="card-text">ID: ${pokemon.id}</p>
 							<p class="card-text">Tipos:</p>
 							${pokemon.tipos
@@ -183,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			<div id="card-pokemon" class="card text-center">
 				<div class="card-body">
 					<div class="row align-items-center">
-						<h5 class="card-title">No existe</h5>
+						<h5 class="card-title">El Pokémon no existe!</h5>
 						</div>
 					</div>
 				</div>
