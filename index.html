@@ -5,95 +5,93 @@
 		<link rel="icon" type="image/svg+xml" href="./src/public/vite.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Sprint Módulo 4</title>
+		<link rel="stylesheet" href="./src/assets/css/main.css">
 	</head>
 	<body>
+		<header class="imagen-header">
+			<section>
+				<div class="container">
+					<nav>
+						<div class="logo">
+							<a href="#"><img
+									src="https://upload.wikimedia.org/wikipedia/commons/5/51/Pokebola-pokeball-png-0.png"
+									alt="pokeball"></a>
+						</div>
+						<div class="enlaces">
+							<ul>
+								<li><a href="#">Contacto</a></li>
+								<li><a href="#">Inicio</a></li>
+								<li><a href="#">Registro</a></li>
+								<li><a href="#">Login</a></li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+			</section>
+	
+			<section class="box-descripcion">
+				<div class="container">
+					<div class="row d-flex align-items-center">
+						<div class="col titulos">
+							<h1>PokéDexplorer</h1>
+							<h2>Explora, descubre y conoce a todos los Pokémon en un solo lugar. ¡Atrapa, entrena y
+								conquista!</h2>
+						</div>
+						<div class="col">
+							<img class="gengar" src="./src/assets/img/pngegg.png" alt="pokemon gengar">
+						</div>
+					</div>
+				</div>
+			</section>
+		</header>
+		<!-- CIERRE HEADER Y NAV -->
+	
+		<!-- INICIO DEL MAIN -->
 		<main>
-			<div class="d-flex align-items-start">
-				<div
-					class="nav flex-column nav-pills me-3"
-					id="v-pills-tab"
-					role="tablist"
-					aria-orientation="vertical"
-				>
-					<button
-						class="nav-link active"
-						id="busqueda-nombre-id-tab"
-						data-bs-toggle="pill"
-						data-bs-target="#busqueda-nombre-id"
-						type="button"
-						role="tab"
-						aria-controls="busqueda-nombre-id"
-						aria-selected="true"
-					>
+			<div class="container d-flex flex-column align-items-center">
+				<div class="nav nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+					<button class="nav-link m-3 active" id="busqueda-nombre-id-tab" data-bs-toggle="pill"
+						data-bs-target="#busqueda-nombre-id" type="button" role="tab" aria-controls="busqueda-nombre-id"
+						aria-selected="true">
 						Busqueda por Nombre o ID
 					</button>
-
-					<button
-						class="nav-link"
-						id="listado-pokemons-tab"
-						data-bs-toggle="pill"
-						data-bs-target="#listado-pokemons"
-						type="button"
-						role="tab"
-						aria-controls="listado-pokemons"
-						aria-selected="false"
-					>
+	
+					<button class="nav-link " id="listado-pokemons-tab" data-bs-toggle="pill"
+						data-bs-target="#listado-pokemons" type="button" role="tab" aria-controls="listado-pokemons"
+						aria-selected="false">
 						Listado de Pokémons
 					</button>
 				</div>
-
+	
 				<div class="tab-content" id="v-pills-tabContent">
-					<div
-						class="tab-pane fade show active"
-						id="busqueda-nombre-id"
-						role="tabpanel"
-						aria-labelledby="busqueda-nombre-id-tab"
-						tabindex="0"
-					>
+					<div class="tab-pane fade show active" id="busqueda-nombre-id" role="tabpanel"
+						aria-labelledby="busqueda-nombre-id-tab" tabindex="0">
 						<div class="row">
 							<form id="busqueda" class="col-12 p-5">
 								<div class="form-floating">
-									<input
-										class="form-control"
-										type="search"
-										name="nombre-id-pokemon"
-										id="nombre-id-pokemon"
-										placeholder="Búsqueda"
-									/>
+									<input class="form-control" type="search" name="nombre-id-pokemon"
+										id="nombre-id-pokemon" placeholder="Búsqueda" />
 									<label for="nombre-id-pokemon">Búsqueda</label>
 								</div>
 							</form>
-
+	
 							<div class="col" id="mostrarPokemon"></div>
 						</div>
 					</div>
-
-					<div
-						class="tab-pane fade"
-						id="listado-pokemons"
-						role="tabpanel"
-						aria-labelledby="listado-pokemons-tab"
-						tabindex="0"
-					>
+	
+					<div class="tab-pane fade" id="listado-pokemons" role="tabpanel" aria-labelledby="listado-pokemons-tab"
+						tabindex="0">
 						<div class="container p-5">
 							<div class="row g-5" id="listadoPokemons"></div>
-
+	
 							<div class="row justify-content-end mt-5">
-								<button
-									data-id="btnCargarMas"
-									data-limit="20"
-									data-offset="0"
-									class="btn btn-primary col-2 me-3"
-								>
+								<button data-id="btnCargarMas" data-limit="20" data-offset="0"
+									class="btn btn-primary col-2 me-3">
 									Cargar más
 								</button>
-
-								<button
-									data-id="btnBorrarTodo"
-									data-limit="20"
-									data-offset="0"
-									class="btn btn-danger col-2"
-								>
+	
+								<button data-id="btnBorrarTodo" data-limit="20" data-offset="0"
+									class="btn btn-danger col-2">
 									Borrar todo
 								</button>
 							</div>
@@ -102,7 +100,24 @@
 				</div>
 			</div>
 		</main>
-
+		<footer>
+			<div class="container box-footer">
+				<div class="footer-img">
+					<img src="https://archives.bulbagarden.net/media/upload/4/4b/Pok%C3%A9dex_logo.png" alt="POKEDEX">
+				</div>
+				<div class="footer-text d-flex justify-content-center">
+					<p>© 2023 Todos los derechos reservados.</p>
+				</div>
+				<div class="footer-link">
+					<ul>
+						<li><a href="#">Inicio</a></li>
+						<li><a href="#">Contacto</a></li>
+						<li><a href="#">Registro</a></li>
+					</ul>
+				</div>
+			</div>
+		</footer>
+	
 		<script src="./src/assets/js/bootstrap.bundle.min.js"></script>
 		<script type="module" src="./src/main.js"></script>
 	</body>

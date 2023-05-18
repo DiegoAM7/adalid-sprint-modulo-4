@@ -1,0 +1,221 @@
+.imagen-header {
+    background-image: url('https://cdn.fansshare.com/pictures/animewallpaper/fa-ff-cb-babf-bc-anime-scenery-wallpaper-1596450322.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: auto;
+}
+.box-descripcion{
+    margin: 6rem 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.logo img {
+    width: 40px;
+}
+
+.enlaces ul {
+    display: flex;
+    list-style: none;
+}
+
+.enlaces li a {
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+}
+
+.enlaces li a:hover {
+    border-bottom: 2px solid white;
+}
+
+
+.titulos h1 {
+    color: white;
+    font-size: 50px;
+    font-weight: 500px;
+    margin-bottom: 10px;
+}
+
+.titulos h2 {
+    color: white;
+    font-size: 25px;
+    text-align: justify;
+}
+
+
+
+/* ===================================================================== */
+main{
+    margin-bottom: 3rem;
+}
+.card{
+
+    border-radius: 20px !important;
+}
+.algo{
+    background-color: rgb(255, 202, 55);
+    border: 1px solid black;
+    padding: 15px;
+    border-radius: 20px;
+    height: auto;
+    width: 400px;
+}
+.box-card{
+    background-color: white;
+    width: 300px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+.box-card2{
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.card-imagen{
+    background-image: url('https://e0.pxfuel.com/wallpapers/775/601/desktop-wallpaper-pokemon-background-pokemon-scenery.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px 20px 0 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;
+}
+.card-imagen2{
+    background-image: url('https://i.pinimg.com/originals/a6/8d/d6/a68dd654fee9a0ed0d33c0d0172364be.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+.card-imagen img{
+    width: 300px;
+}
+.box-card{
+    width: auto;
+}
+.tipo{
+    display: flex;
+}
+.card-ifo{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    height: 250px;
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/001/946/528/small/abstract-geometric-square-grey-with-line-on-white-background-technology-concept-free-vector.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 0 0 20px 20px;
+}
+.card-info2{
+    padding: 10px;
+    border-radius: 0 0 20px 20px;
+}
+.poke-info{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1.5rem;
+    padding-left: 10px;
+}
+.poke-info h5{
+    text-align: left;
+}
+.types-poke{
+    display: flex;
+}
+.types-poke img{
+    margin-right: 10px;
+}
+.nombre-poke{
+    margin-bottom: 1rem;
+}
+.poke-id{
+    display: flex;
+    align-items: center;
+}
+.poke-id h2{
+    margin-right: 10px;
+    writing-mode: vertical-rl;
+}
+
+
+/* ======================================================================== */
+
+footer {
+    background-color: black;
+    height: auto;
+}
+
+.footer-img {
+    display: flex;
+    align-items: center;
+}
+
+.footer-img img {
+    width: 200px;
+    height: 60px;
+}
+
+.box-footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+.footer-text {
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-link ul {
+    display: flex;
+    list-style: none;
+}
+
+.footer-link li a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.footer-link li a:hover {
+    border-bottom: 2px solid white;
+}
+
+/* ===================================================================== */
+
+
+
+@media screen and ( max-width: 475px){
+    html{
+        font-size: 10px;
+    }
+    .gengar{
+        width: 400px;
+        height: auto;
+    }
+}

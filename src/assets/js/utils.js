@@ -42,26 +42,38 @@ document.addEventListener('DOMContentLoaded', () => {
 			.sort((a, b) => a.id - b.id)
 			.map((pokemon) => {
 				listadoPokemons.innerHTML += `
-			<div class="col-12 col-md-6 col-lg-4 col-xl-3">
-				<div class="card text-center" style="height: 550px; width: 300px;">
-					<div class="card-body">
-						<img width="250px" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
+			<div class="col d-flex flex-column align-items-center">
+				<div class="algo text-center" style="height: 550px; width: 350px;">
+				<div class="box-card">
+				<div class="card-imagen">
+						<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
 							pokemon.id
-						}.png" alt="${pokemon.name}">
-						<h5 class="card-title">${pokemon.name
-							.split('-')
-							.map((nombre) => nombre.charAt(0).toUpperCase() + nombre.slice(1))
-							.join(' ')}</h5>
-						<p class="card-text">ID: ${pokemon.id}</p>
-						<p class="card-text">Tipos:</p>
-						<span class="row">${pokemon.types
-							.map(
+						}.png" alt="${pokemon.name}" alt="${pokemon.name}">   
+				</div>
+				<div class="card-ifo">
+					<div class="poke-info">
+						<div class="nombre-poke">
+							<h5>${pokemon.name
+								.split('-')
+								.map((nombre) => nombre.charAt(0).toUpperCase() + nombre.slice(1))
+								.join(' ')}</h5>
+						</div>
+						<div class="types-poke">
+							<span class="tipo">${pokemon.types
+								.map(
 								(tipo) =>
-									`<img class="col-12 object-fit-none" src="src/public/tipos/${tipo.type.name}.png" alt="${tipo.type.name}" />`
-							)
-							.join('')}
-						</span>
+								`<img src="src/public/tipos/${tipo.type.name}.png"
+									alt="${tipo.type.name}" />`
+								)
+								.join('')}
+							</span>
+						</div>
 					</div>
+					<div class="poke-id">
+						<h2>ID ${pokemon.id}</h2>
+					</div>
+				</div>
+			</div>
 				</div>
 			</div>`;
 			});
@@ -124,23 +136,29 @@ document.addEventListener('DOMContentLoaded', () => {
 				<div class="card-body">
 					<div class="row align-items-center">
 						<div class="col">
-						<img width="200px" src="${pokemon.imagen}" alt="${pokemon.nombre}">
-							<h5 class="card-title">
-								${pokemon.nombre
+							<div class="box-card2">
+								<div class="card-imagen2">
+									<img width="200px" src="${pokemon.imagen}" alt="${pokemon.nombre}">
+								</div>
+								<div class='card-info2'>
+									<h5 class="card-title">
+									${pokemon.nombre
 									.split('-')
 									.map(
 										(nombre) => nombre.charAt(0).toUpperCase() + nombre.slice(1)
 									)
 									.join(' ')}
-							</h5>
-							<p class="card-text">ID: ${pokemon.id}</p>
-							<p class="card-text">Tipos:</p>
-							${pokemon.tipos
-								.map(
+									</h5>
+									<p class="card-text">ID: ${pokemon.id}</p>
+									<p class="card-text">Tipos:</p>
+									${pokemon.tipos
+									.map(
 									(tipo) =>
 										`<img src="src/public/tipos/${tipo}.png" alt="${tipo}" />`
-								)
-								.join(' ')}
+									)
+									.join(' ')}
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
