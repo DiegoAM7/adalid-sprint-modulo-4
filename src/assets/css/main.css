@@ -57,7 +57,7 @@ main{
     margin-bottom: 3rem;
 }
 .card{
-
+    background-color: rgb(255, 202, 55) !important;
     border-radius: 20px !important;
 }
 .algo{
@@ -109,8 +109,8 @@ main{
 .box-card{
     width: auto;
 }
-.tipo{
-    display: flex;
+.tipo img{
+    width: 100px;
 }
 .card-ifo{
     display: flex;
@@ -123,6 +123,7 @@ main{
     border-radius: 0 0 20px 20px;
 }
 .card-info2{
+    background-color: white;
     padding: 10px;
     border-radius: 0 0 20px 20px;
 }
@@ -131,10 +132,11 @@ main{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 1.5rem;
     padding-left: 10px;
 }
+
 .poke-info h5{
+    font-size: 30px;
     text-align: left;
 }
 .types-poke{
